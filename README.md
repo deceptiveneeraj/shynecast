@@ -170,8 +170,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/deceptiveneeraj)
-- Website: [yourwebsite.com](https://deceptiveone.github.com)
+- GitHub: [Neeraj Solanki](https://github.com/deceptiveneeraj)
+- Website: [My Portfolio](https://deceptiveone.github.com)
 
 ## 🙏 Acknowledgments
 

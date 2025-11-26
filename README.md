@@ -26,7 +26,7 @@ A modern, responsive weather application that provides real-time weather informa
 
 ## 🚀 Demo
 
-Visit the live application: [Shyne Cast](#)
+Visit the live application: [Shyne Cast](https://deceptiveneeraj.github.io/shynecast/)
 
 ## 📋 Prerequisites
 

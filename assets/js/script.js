@@ -1,14 +1,14 @@
 import { hero } from "./hero.js";
 
 function func(hero) {
-    const regex = /[a-f0-9]{32}/i;   // 32-character hex
-    const match = hero.match(regex);
-    return match ? match[0] : null;
+  const regex = /[a-f0-9]{32}/i; // 32-character hex
+  const match = hero.match(regex);
+  return match ? match[0] : null;
 }
 
 const subject = func(hero);
 
-const API_KEY = subject ;
+const API_KEY = subject;
 
 function getWeather(cityName = null) {
   let city = cityName || document.getElementById("city").value.trim();
@@ -26,7 +26,9 @@ function getWeather(cityName = null) {
     })
     .catch((error) => {
       console.error("Error fetching weather data:", error);
-      alert("Could not retrieve weather data. Please check the city name and try again.");
+      alert(
+        "Could not retrieve weather data. Please check the city name and try again."
+      );
     });
 }
 
@@ -56,10 +58,16 @@ function displayWeatherData(data) {
 
   document.getElementById("city-name").innerHTML = cityName.toUpperCase();
   document.getElementById("temp").innerHTML = `${temp}°C`;
-  document.getElementById("weatherIcon").src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+  document.getElementById(
+    "weatherIcon"
+  ).src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
   document.getElementById("weather-desc").innerHTML = `${desc.toUpperCase()}`;
-  document.getElementById("sunrise").innerHTML = `<i class="fas fa-sun"></i> ${sunrise.toUpperCase()}`;
-  document.getElementById("sunset").innerHTML = `<i class="fas fa-cloud-sun"></i> ${sunset.toUpperCase()}`;
+  document.getElementById(
+    "sunrise"
+  ).innerHTML = `<i class="fas fa-sun"></i> ${sunrise.toUpperCase()}`;
+  document.getElementById(
+    "sunset"
+  ).innerHTML = `<i class="fas fa-cloud-sun"></i> ${sunset.toUpperCase()}`;
 
   document.getElementById("temp-min").innerHTML = `${tempMin}°C`;
   document.getElementById("temp-max").innerHTML = `${tempMax}°C`;
@@ -73,7 +81,7 @@ function displayWeatherData(data) {
 
 function getFiveDayForecastByCoords(lat, lon) {
   const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-  
+
   fetch(forecastUrl)
     .then((response) => response.json())
     .then((forecastData) => {
@@ -111,7 +119,7 @@ function getFiveDayForecastByCoords(lat, lon) {
 
         if (shownDays.size === 5) break;
       }
-      
+
       document.getElementById("forecast-title").innerHTML = "5-Day Forecast";
       document.getElementById("forecast").innerHTML = forecastHTML;
     })
@@ -131,7 +139,9 @@ function getLocationWeather() {
       let lat = pos.coords.latitude;
       let lon = pos.coords.longitude;
 
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+      )
         .then((res) => res.json())
         .then((data) => {
           displayWeatherData(data);
@@ -158,6 +168,9 @@ window.onload = function () {
     getLocationWeather();
   } else {
     // If geolocation not supported, use default city
-    getWeather();
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchCity = urlParams.get("search"); // gets 'dewas' if ?search=dewas
+    getWeather(searchCity);
+    // getWeather();
   }
 };

@@ -347,11 +347,13 @@ footer a:hover {
 
     .weather-desc {
         font-size: 0.9rem;
+        margin-left: -25px;
 
     }
 
     .sunrise-sunset {
         font-size: 16px;
+        margin-right: -10px;
     }
 
     .sunrise-sunset i {
@@ -359,18 +361,18 @@ footer a:hover {
     }
 
     .weather-icon {
-        width: 260px;
-        height: 260px;
+        width: 160px;
+        height: 160px;
     }
 
     .weather-icon img {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         animation: pulse 2s infinite ease-in-out;
     }
 
     .weather-temp {
-        font-size: 250%;
+        font-size: 150%;
     }
 
 }

@@ -347,13 +347,12 @@ footer a:hover {
 
     .weather-desc {
         font-size: 0.9rem;
-        margin-left: -25px;
+        margin-left: -20px;
 
     }
 
     .sunrise-sunset {
         font-size: 16px;
-        margin-right: -10px;
     }
 
     .sunrise-sunset i {

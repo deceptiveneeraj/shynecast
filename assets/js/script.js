@@ -128,7 +128,6 @@ function getFiveDayForecastByCoords(lat, lon) {
     });
 }
 
-// Get weather based on user's current location
 function getLocationWeather() {
   if (!navigator.geolocation) {
     return alert("Geolocation is not supported by your browser");
@@ -155,22 +154,32 @@ function getLocationWeather() {
     (error) => {
       console.error("Geolocation error:", error);
       alert("Could not access your location. Using default city instead.");
-      // Fallback to default city if location access denied
       getWeather();
     }
   );
 }
 
-// Automatically detect location and show weather on page load
+function getCityFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("search");
+}
+
 window.onload = function () {
-  // Try to get location automatically
-  if (navigator.geolocation) {
+  const searchCity = getCityFromURL();
+  
+  if (searchCity) {
+    getWeather(searchCity);
+  } else if (navigator.geolocation) {
     getLocationWeather();
   } else {
-    // If geolocation not supported, use default city
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchCity = urlParams.get("search"); // gets 'dewas' if ?search=dewas
-    getWeather(searchCity);
-    // getWeather();
+    getWeather();
   }
 };
+
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  getWeather();
+});
+
+window.getWeather = getWeather;
+window.getLocationWeather = getLocationWeather;

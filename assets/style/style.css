@@ -340,6 +340,7 @@ footer a:hover {
     .weather-temp {
         font-size: 180%;
     }
+
     .city-name {
         font-size: 1.3rem;
     }
@@ -356,5 +357,20 @@ footer a:hover {
     .sunrise-sunset i {
         font-size: 100%;
     }
-    
+
+    .weather-icon {
+        width: 260px;
+        height: 260px;
+    }
+
+    .weather-icon img {
+        width: 200px;
+        height: 200px;
+        animation: pulse 2s infinite ease-in-out;
+    }
+
+    .weather-temp {
+        font-size: 250%;
+    }
+
 }

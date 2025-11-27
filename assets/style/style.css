@@ -338,7 +338,8 @@ footer a:hover {
 /* Media queries */
 @media screen and (max-width: 600px) {
     .weather-temp {
-        font-size: 180%;
+        font-size: 200%;
+        margin-left: 15px;
     }
 
     .city-name {
